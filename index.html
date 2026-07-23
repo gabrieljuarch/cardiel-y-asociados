@@ -1073,6 +1073,8 @@
       .servicios { padding: 36px 6vw 60px; }
       .section-header p { white-space: normal; }
       .clientes { padding: 36px 6vw 90px; }
+      .car-card { flex: 0 0 100%; }
+      .clientes-carousel { gap: 10px; }
       .svc-grid { grid-template-columns: 1fr; }
       .equipo-grid { grid-template-columns: 1fr; }
       .contacto { grid-template-columns: 1fr; }
@@ -1563,15 +1565,23 @@
       const dotsWrap = document.getElementById('car-dots');
       if (!track) return;
       const cards = Array.from(track.querySelectorAll('.car-card'));
-      const perPage = 2;
-      const total = Math.ceil(cards.length / perPage);
+      function getPerPage() { return window.innerWidth <= 768 ? 1 : 2; }
+      let perPage = getPerPage();
+      let total = Math.ceil(cards.length / perPage);
       let cur = 0;
 
-      for (let i = 0; i < total; i++) {
-        const d = document.createElement('button');
-        d.className = 'car-dot' + (i === 0 ? ' active' : '');
-        d.addEventListener('click', () => go(i));
-        dotsWrap.appendChild(d);
+      function buildDots() {
+        dotsWrap.innerHTML = '';
+        perPage = getPerPage();
+        total = Math.ceil(cards.length / perPage);
+        for (let i = 0; i < total; i++) {
+          const d = document.createElement('button');
+          d.className = 'car-dot' + (i === 0 ? ' active' : '');
+          d.addEventListener('click', () => go(i));
+          dotsWrap.appendChild(d);
+        }
+        cur = 0;
+        go(0);
       }
 
       function go(idx) {
@@ -1581,6 +1591,9 @@
         dotsWrap.querySelectorAll('.car-dot').forEach((d, i) =>
           d.classList.toggle('active', i === cur));
       }
+
+      buildDots();
+      window.addEventListener('resize', buildDots);
 
       document.getElementById('car-prev').addEventListener('click', () => go(cur - 1));
       document.getElementById('car-next').addEventListener('click', () => go(cur + 1));
