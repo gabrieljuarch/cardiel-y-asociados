@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Nosotros — Cardiel &amp; Asociados</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.about-text p { font-size: 0.97rem; color: var(--text-s); line-height: 1.85; margin-bottom: 16px; }
+.about-visual {
+  background: linear-gradient(145deg, #0A1428 0%, #142050 60%, #1E3A78 100%);
+  border-radius: 14px; padding: 52px 40px;
+}
+.av-item { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.av-item:last-child { border-bottom: none; }
+.av-num { display: block; font-family: Georgia, serif; font-size: 2.8rem; font-weight: 700; color: #fff; line-height: 1; }
+.av-desc { font-size: 0.84rem; color: rgba(255,255,255,0.5); margin-top: 4px; display: block; }
+.mvv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.mvv-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 44px 38px; box-shadow: var(--shadow);
+}
+.mvv-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+.mvv-card h3 { font-size: 1.1rem; color: var(--blue); margin-bottom: 14px; }
+.mvv-card blockquote {
+  font-family: Georgia, serif; font-style: italic;
+  font-size: 1.03rem; color: var(--text);
+  border-left: 3px solid var(--blue); padding-left: 16px; margin-bottom: 14px;
+}
+.mvv-card p { font-size: 0.86rem; color: var(--text-s); line-height: 1.75; }
+.valores-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+.valor-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px 20px; text-align: center;
+  box-shadow: var(--shadow); transition: all var(--tr);
+}
+.valor-card:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.valor-icon { font-size: 1.8rem; margin-bottom: 10px; display: block; }
+.valor-card h4 { font-size: 0.92rem; font-weight: 700; color: var(--text); font-family: inherit; }
+.pillars-row { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 28px; }
+.pillar { background: var(--bg-alt); border-left: 3px solid var(--blue); border-radius: 0 var(--radius) var(--radius) 0; padding: 16px 20px; }
+.pillar h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 4px; font-family: inherit; }
+.pillar p { font-size: 0.8rem; color: var(--text-s); }
+@media(max-width:860px){ .about-split,.mvv-grid{ grid-template-columns:1fr; } .valores-grid{ grid-template-columns:1fr 1fr; } }
+@media(max-width:560px){ .valores-grid,.pillars-row{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body data-page="nosotros">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo-mark">
+      <svg class="logo-svg" viewBox="0 0 50 50"><path d="M38,8 A20,20 0 1,0 38,42 L38,34 A12,12 0 1,1 38,16 Z" fill="#4A4A4A"/><path d="M38,16 L47,25 L38,34 L38,27 L43,25 L38,23 Z" fill="#2B5BA8"/></svg>
+      <div class="logo-text-block">
+        <span class="logo-name">Cardiel <em>&amp;</em> Asociados</span>
+        <span class="logo-sub">S.C. · León, Gto.</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-page="inicio">Inicio</a></li>
+      <li><a href="nosotros.html" data-page="nosotros">Nosotros</a></li>
+      <li><a href="servicios.html" data-page="servicios">Servicios</a></li>
+      <li><a href="equipo.html" data-page="equipo">Equipo</a></li>
+      <li><a href="clientes.html" data-page="clientes">Clientes</a></li>
+      <li><a href="contacto.html" data-page="contacto" class="nav-cta">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html" onclick="closeMenu()">Inicio</a>
+  <a href="nosotros.html" onclick="closeMenu()">Nosotros</a>
+  <a href="servicios.html" onclick="closeMenu()">Servicios</a>
+  <a href="equipo.html" onclick="closeMenu()">Equipo</a>
+  <a href="clientes.html" onclick="closeMenu()">Clientes</a>
+  <a href="contacto.html" onclick="closeMenu()">Contacto</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Inicio</a><span>/</span><span class="breadcrumb-current">Nosotros</span></div>
+    <h1 data-anim>Nuestra Firma</h1>
+    <p data-anim data-d="1">Más de 30 años de experiencia contable y de auditoría al servicio de personas físicas, empresas e instituciones en León, Guanajuato.</p>
+  </div>
+</section>
+
+<!-- QUIÉNES SOMOS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="about-split">
+      <div class="about-text" data-anim-l>
+        <span class="eyebrow">Quiénes somos</span>
+        <div class="rule"></div>
+        <h2 class="h2">Una firma con trayectoria y vocación de servicio</h2>
+        <p>Cardiel y Asociados, S.C. es una firma constituida por Contadores Públicos con presencia regional, especializados en diversas áreas de la Contaduría. Nuestro principal objetivo es otorgar a nuestros clientes atención y servicios con un alto grado de profesionalismo, buscando la plena satisfacción de sus expectativas.</p>
+        <p>Nos distinguimos por su filosofía y sus valores profesionales, al proporcionarles un trabajo de la más alta calidad. Contamos con la experiencia que nos ha brindado el trabajo continuo derivado de las necesidades de nuestros clientes. Esta filosofía permea la firma entera y es inherente a toda relación con los clientes.</p>
+        <p>Para atender las necesidades de los clientes de manera eficaz, nuestro enfoque subraya el desarrollo de buenas relaciones de trabajo a través de la comunicación constante entre nuestro personal y el personal de los clientes.</p>
+        <div class="pillars-row">
+          <div class="pillar"><h4>Actualización continua</h4><p>Al día con los cambios fiscales y normativos vigentes.</p></div>
+          <div class="pillar"><h4>Socios colegiados</h4><p>Miembros activos del IMCP y CCPL de León.</p></div>
+          <div class="pillar"><h4>Atención personalizada</h4><p>Presencial y remota según tus necesidades.</p></div>
+          <div class="pillar"><h4>Métodos actualizados</h4><p>Herramientas modernas para los retos de hoy.</p></div>
+        </div>
+      </div>
+      <div class="about-visual" data-anim-r>
+        <div class="av-item"><span class="av-num">30+</span><span class="av-desc">Años de vida y presencia regional en el Bajío</span></div>
+        <div class="av-item"><span class="av-num">23+</span><span class="av-desc">Empresas e instituciones importantes atendidas</span></div>
+        <div class="av-item"><span class="av-num">2</span><span class="av-desc">Socios certificados con amplia trayectoria institucional</span></div>
+        <div class="av-item"><span class="av-num" style="font-size:1.8rem">Alta</span><span class="av-desc">Capacidad de resolución de problemas contables y fiscales</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISIÓN & VISIÓN -->
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:48px">
+      <span class="eyebrow" data-anim>Nuestra filosofía</span>
+      <div class="rule rule-center" data-anim data-d="1"></div>
+      <h2 class="h2" data-anim data-d="1">Misión y Visión</h2>
+    </div>
+    <div class="mvv-grid">
+      <div class="mvv-card" data-anim data-d="1">
+        <span class="mvv-icon">🎯</span>
+        <h3>Nuestra Misión</h3>
+        <blockquote>"Proporcionar los servicios necesarios para exceder las expectativas de Nuestros Clientes"</blockquote>
+        <p>Para lograrlo, aplicamos objetivos de servicio basados en identidad, lealtad y honestidad con el cliente; comunicación efectiva; análisis de necesidades; anticipación y resolución de problemas; servicios de calidad con apoyo permanente; e información clara para la correcta toma de decisiones.</p>
+      </div>
+      <div class="mvv-card" data-anim data-d="2">
+        <span class="mvv-icon">🔭</span>
+        <h3>Nuestra Visión</h3>
+        <blockquote>"Ser una Firma reconocida en la región por su calidad en el servicio y satisfacción de nuestros clientes, asegurando la calidad profesional de nuestro personal"</blockquote>
+        <p>Nos esforzamos cada día por mantener estándares de excelencia que fortalezcan nuestra presencia regional y consoliden la confianza de cada cliente que nos elige como su firma contable y de auditoría de cabecera.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section class="sec">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:48px">
+      <span class="eyebrow" data-anim>Lo que nos rige</span>
+      <div class="rule rule-center" data-anim data-d="1"></div>
+      <h2 class="h2" data-anim data-d="1">Nuestros Valores</h2>
+      <p class="lead" data-anim data-d="2">Los valores de nuestra firma son la base de nuestra forma de trabajo y de toda relación profesional que establecemos.</p>
+    </div>
+    <div class="valores-grid">
+      <div class="valor-card" data-anim data-d="1"><span class="valor-icon">🤝</span><h4>Honestidad</h4></div>
+      <div class="valor-card" data-anim data-d="2"><span class="valor-icon">🙏</span><h4>Respeto</h4></div>
+      <div class="valor-card" data-anim data-d="3"><span class="valor-icon">⏱️</span><h4>Puntualidad</h4></div>
+      <div class="valor-card" data-anim data-d="4"><span class="valor-icon">📐</span><h4>Disciplina</h4></div>
+      <div class="valor-card" data-anim data-d="1"><span class="valor-icon">⚖️</span><h4>Honradez</h4></div>
+      <div class="valor-card" data-anim data-d="2"><span class="valor-icon">🔐</span><h4>Confianza</h4></div>
+      <div class="valor-card" data-anim data-d="3"><span class="valor-icon">🎓</span><h4>Profesionalismo</h4></div>
+      <div class="valor-card" data-anim data-d="4"><span class="valor-icon">💡</span><h4>Compromiso</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="wrap" data-anim>
+    <h2>Conoce a nuestro equipo directivo</h2>
+    <p>Dos socios certificados con más de 30 años de trayectoria respaldan cada servicio que ofrecemos.</p>
+    <div class="cta-btns">
+      <a href="equipo.html" class="btn btn-outline-white">Ver equipo</a>
+      <a href="contacto.html" class="btn" style="background:#fff;color:var(--blue);">Contáctanos</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="footer-brand-name">Cardiel <em>&amp;</em> Asociados, S.C.</p>
+        <p>Firma contable y de auditoría con más de 30 años de experiencia en León, Guanajuato.</p>
+      </div>
+      <div class="footer-col"><h4>Páginas</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="equipo.html">Equipo</a></li><li><a href="clientes.html">Clientes</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+      <div class="footer-col"><h4>Contacto</h4><ul><li><a href="tel:4774927674">(477) 492-7674</a></li><li><a href="https://wa.me/524771374944">(477) 137-4944 WA</a></li><li><a href="mailto:contacto@cardielyasociados.com.mx">contacto@cardielyasociados.com.mx</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-copy">© 2026 Cardiel y Asociados, S.C. Todos los derechos reservados.</p><p class="footer-copy">Lunes a Viernes · 8:30 a.m. – 5:30 p.m.</p></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/524771374944" class="wa" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script src="main.js"></script>
+</body>
+</html>

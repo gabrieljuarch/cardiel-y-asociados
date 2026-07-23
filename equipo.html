@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Equipo — Cardiel &amp; Asociados</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.partner-block { padding: 96px 0; }
+.partner-block:nth-child(even) { background: var(--bg-alt); }
+.partner-inner { display: grid; grid-template-columns: 340px 1fr; gap: 72px; align-items: start; }
+.partner-inner.flip { grid-template-columns: 1fr 340px; }
+.partner-inner.flip .partner-card { order: 2; }
+.partner-inner.flip .partner-bio { order: 1; }
+.partner-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+.partner-avatar {
+  height: 260px;
+  background: linear-gradient(145deg, #0A1428 0%, #1A3D7A 60%, #2B5BA8 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.avatar-initials {
+  width: 100px; height: 100px; border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font-family: Georgia, serif; font-size: 2.8rem; font-weight: 700; color: #fff;
+}
+.partner-card-body { padding: 28px 24px; }
+.partner-name { font-family: Georgia, serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; }
+.partner-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 18px; }
+.partner-cert { display: flex; flex-direction: column; gap: 8px; }
+.cert-badge {
+  font-size: 0.78rem; color: var(--text-s);
+  background: var(--bg-alt); border: 1px solid var(--border);
+  border-radius: 6px; padding: 7px 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.cert-badge::before { content: '🎓'; }
+.partner-bio h2 { font-size: clamp(1.6rem, 2.8vw, 2.2rem); margin-bottom: 14px; }
+.partner-bio p { font-size: 0.95rem; color: var(--text-s); line-height: 1.85; margin-bottom: 16px; }
+.exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+.exp-item { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+.exp-item h4 { font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; font-family: inherit; }
+.exp-item p { font-size: 0.78rem; color: var(--text-s); }
+.partner-block:nth-child(even) .exp-item { background: var(--bg); }
+.team-staff { background: var(--navy); padding: 88px 0; }
+.team-staff h2 { color: #fff; text-align: center; margin-bottom: 14px; }
+.team-staff .eyebrow { color: rgba(255,255,255,0.5); display: block; text-align: center; margin-bottom: 10px; }
+.team-staff p.lead { text-align: center; color: rgba(255,255,255,0.55); margin: 0 auto 48px; }
+.staff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.staff-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 28px 24px; text-align: center; }
+.staff-role { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5B84D4; margin-bottom: 8px; display: block; }
+.staff-name { font-size: 0.95rem; color: #fff; font-weight: 600; }
+.staff-desc { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 8px; }
+@media(max-width:900px){ .partner-inner, .partner-inner.flip { grid-template-columns: 1fr; } .partner-inner.flip .partner-card,.partner-inner.flip .partner-bio { order: unset; } .staff-grid { grid-template-columns: 1fr 1fr; } .exp-grid { grid-template-columns: 1fr; } }
+@media(max-width:560px){ .staff-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-page="equipo">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo-mark">
+      <svg class="logo-svg" viewBox="0 0 50 50"><path d="M38,8 A20,20 0 1,0 38,42 L38,34 A12,12 0 1,1 38,16 Z" fill="#4A4A4A"/><path d="M38,16 L47,25 L38,34 L38,27 L43,25 L38,23 Z" fill="#2B5BA8"/></svg>
+      <div class="logo-text-block">
+        <span class="logo-name">Cardiel <em>&amp;</em> Asociados</span>
+        <span class="logo-sub">S.C. · León, Gto.</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-page="inicio">Inicio</a></li>
+      <li><a href="nosotros.html" data-page="nosotros">Nosotros</a></li>
+      <li><a href="servicios.html" data-page="servicios">Servicios</a></li>
+      <li><a href="equipo.html" data-page="equipo">Equipo</a></li>
+      <li><a href="clientes.html" data-page="clientes">Clientes</a></li>
+      <li><a href="contacto.html" data-page="contacto" class="nav-cta">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html" onclick="closeMenu()">Inicio</a>
+  <a href="nosotros.html" onclick="closeMenu()">Nosotros</a>
+  <a href="servicios.html" onclick="closeMenu()">Servicios</a>
+  <a href="equipo.html" onclick="closeMenu()">Equipo</a>
+  <a href="clientes.html" onclick="closeMenu()">Clientes</a>
+  <a href="contacto.html" onclick="closeMenu()">Contacto</a>
+</div>
+
+<section class="page-hero">
+  <div class="wrap page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Inicio</a><span>/</span><span class="breadcrumb-current">Equipo</span></div>
+    <h1 data-anim>Nuestro Equipo</h1>
+    <p data-anim data-d="1">Contadores Públicos Certificados con décadas de experiencia institucional y empresarial respaldan cada servicio que ofrecemos.</p>
+  </div>
+</section>
+
+<!-- SOCIO 1 -->
+<section class="partner-block">
+  <div class="wrap">
+    <div class="partner-inner">
+      <div class="partner-card" data-anim-l>
+        <div class="partner-avatar"><div class="avatar-initials">HC</div></div>
+        <div class="partner-card-body">
+          <p class="partner-name">C.P.C. Héctor Cardiel</p>
+          <p class="partner-title">Socio Fundador</p>
+          <div class="partner-cert">
+            <span class="cert-badge">Contador Público Certificado (C.P.C.)</span>
+            <span class="cert-badge">Miembro IMCP · Delegación León</span>
+            <span class="cert-badge">Colegio de Contadores Públicos de León</span>
+          </div>
+        </div>
+      </div>
+      <div class="partner-bio" data-anim-r>
+        <span class="eyebrow">Socio Fundador</span>
+        <div class="rule"></div>
+        <h2>C.P.C. Héctor Cardiel</h2>
+        <p>Contador Público Certificado con amplia trayectoria en auditoría de estados financieros, asesoría fiscal y consultoría empresarial. Fundó la firma hace más de 30 años con la convicción de brindar servicios contables de la más alta calidad a empresas e instituciones del Bajío.</p>
+        <p>Su experiencia abarca sectores industriales, comerciales y de servicios, habiendo participado en auditorías de empresas medianas y grandes, así como en procesos de planeación fiscal para grupos empresariales. Es reconocido por su rigor técnico y su trato cercano con los clientes.</p>
+        <p>Mantiene una actualización constante ante el Instituto Mexicano de Contadores Públicos y participa activamente en el Colegio de Contadores Públicos de León.</p>
+        <div class="exp-grid">
+          <div class="exp-item"><h4>+30 años</h4><p>De experiencia en auditoría y consultoría fiscal</p></div>
+          <div class="exp-item"><h4>Auditoría</h4><p>Especialista en estados financieros bajo NIF e IMSS</p></div>
+          <div class="exp-item"><h4>Fiscal</h4><p>Planeación y cumplimiento ISR, IVA e IEPS</p></div>
+          <div class="exp-item"><h4>IMCP</h4><p>Miembro activo del Instituto Mexicano de C.P.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIO 2 -->
+<section class="partner-block">
+  <div class="wrap">
+    <div class="partner-inner flip">
+      <div class="partner-bio" data-anim-l>
+        <span class="eyebrow">Socio</span>
+        <div class="rule"></div>
+        <h2>C.P.C. Nombre Asociado</h2>
+        <p>Contador Público Certificado con especialización en contabilidad de costos, nómina y seguridad social. Se incorporó a la firma aportando una visión moderna de los procesos contables y administrativos, fortaleciendo el área de atención a clientes del sector industrial y manufacturero.</p>
+        <p>Su formación académica y su experiencia práctica en empresas del Bajío le permiten asesorar a los clientes con una perspectiva integral: desde el registro contable diario hasta la interpretación estratégica de los estados financieros para la toma de decisiones.</p>
+        <p>Participa en cursos de actualización fiscal y contable, garantizando que la firma se mantenga a la vanguardia de los cambios normativos.</p>
+        <div class="exp-grid">
+          <div class="exp-item"><h4>Costos</h4><p>Sistemas de costeo por procesos, órdenes y ABC</p></div>
+          <div class="exp-item"><h4>Nómina</h4><p>IMSS, INFONAVIT, CFDI nómina y liquidaciones</p></div>
+          <div class="exp-item"><h4>Industrial</h4><p>Experiencia en sector manufacturero del Bajío</p></div>
+          <div class="exp-item"><h4>CCPL</h4><p>Miembro del Colegio de Contadores Públicos de León</p></div>
+        </div>
+      </div>
+      <div class="partner-card" data-anim-r>
+        <div class="partner-avatar"><div class="avatar-initials">SA</div></div>
+        <div class="partner-card-body">
+          <p class="partner-name">C.P.C. Socio Asociado</p>
+          <p class="partner-title">Socio</p>
+          <div class="partner-cert">
+            <span class="cert-badge">Contador Público Certificado (C.P.C.)</span>
+            <span class="cert-badge">Miembro IMCP · Delegación León</span>
+            <span class="cert-badge">Especialista en Costos y Nómina</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO DE APOYO -->
+<section class="team-staff">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-white">Equipo profesional</span>
+    <div class="rule rule-center rule-white" style="margin:10px auto 16px" data-anim></div>
+    <h2 data-anim>Respaldo de todo un equipo</h2>
+    <p class="lead lead-white" data-anim data-d="1">Los socios son el punto de contacto principal, pero detrás hay un equipo de profesionales que garantiza la calidad y puntualidad de cada entrega.</p>
+    <div class="staff-grid">
+      <div class="staff-card" data-anim data-d="1">
+        <span class="staff-role">Área Fiscal</span>
+        <p class="staff-name">Analista Fiscal</p>
+        <p class="staff-desc">Declaraciones, CFDI y cumplimiento ante el SAT</p>
+      </div>
+      <div class="staff-card" data-anim data-d="2">
+        <span class="staff-role">Contabilidad</span>
+        <p class="staff-name">Contador Junior</p>
+        <p class="staff-desc">Captura, pólizas y estados financieros mensuales</p>
+      </div>
+      <div class="staff-card" data-anim data-d="3">
+        <span class="staff-role">Nómina & IMSS</span>
+        <p class="staff-name">Especialista en Nómina</p>
+        <p class="staff-desc">Procesamiento de nómina y trámites IMSS/INFONAVIT</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap" data-anim>
+    <h2>Conozca a nuestro equipo en persona</h2>
+    <p>Agende una reunión sin costo y cuéntenos sobre las necesidades de su empresa.</p>
+    <div class="cta-btns">
+      <a href="contacto.html" class="btn" style="background:#fff;color:var(--blue);">Agendar reunión</a>
+      <a href="https://wa.me/524771374944" class="btn btn-outline-white" target="_blank">WhatsApp directo</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="footer-brand-name">Cardiel <em>&amp;</em> Asociados, S.C.</p>
+        <p>Firma contable y de auditoría con más de 30 años de experiencia en León, Guanajuato.</p>
+      </div>
+      <div class="footer-col"><h4>Páginas</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="equipo.html">Equipo</a></li><li><a href="clientes.html">Clientes</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+      <div class="footer-col"><h4>Contacto</h4><ul><li><a href="tel:4774927674">(477) 492-7674</a></li><li><a href="https://wa.me/524771374944">(477) 137-4944 WA</a></li><li><a href="mailto:contacto@cardielyasociados.com.mx">contacto@cardielyasociados.com.mx</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-copy">© 2026 Cardiel y Asociados, S.C. Todos los derechos reservados.</p><p class="footer-copy">Lunes a Viernes · 8:30 a.m. – 5:30 p.m.</p></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/524771374944" class="wa" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script src="main.js"></script>
+</body>
+</html>

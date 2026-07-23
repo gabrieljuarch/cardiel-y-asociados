@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Clientes — Cardiel &amp; Asociados</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.clients-intro { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+.clients-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.client-chip {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 16px;
+  text-align: center; box-shadow: var(--shadow);
+  transition: all var(--tr); display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.client-chip:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.client-initial {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: Georgia, serif; font-weight: 700; font-size: 1rem; color: #fff;
+}
+.client-name { font-size: 0.82rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+.sectors-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; }
+.sector-card {
+  background: var(--bg-alt); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px 24px; text-align: center;
+}
+.sector-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+.sector-card h4 { font-size: 0.9rem; font-weight: 700; font-family: inherit; margin-bottom: 6px; }
+.sector-card p { font-size: 0.8rem; color: var(--text-s); }
+.testimonials { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.testimonial-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 36px 32px;
+  box-shadow: var(--shadow); position: relative;
+}
+.testimonial-card::before { content: '"'; font-family: Georgia, serif; font-size: 5rem; color: var(--blue); opacity: 0.12; position: absolute; top: 12px; left: 24px; line-height: 1; }
+.testimonial-text { font-size: 0.93rem; color: var(--text-s); line-height: 1.8; margin-bottom: 24px; font-style: italic; position: relative; z-index: 1; }
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.author-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: #fff; flex-shrink: 0; }
+.author-name { font-size: 0.87rem; font-weight: 700; }
+.author-role { font-size: 0.75rem; color: var(--text-m); }
+@media(max-width:900px){ .clients-grid { grid-template-columns: repeat(3,1fr); } .testimonials { grid-template-columns: 1fr; } }
+@media(max-width:660px){ .clients-grid { grid-template-columns: repeat(2,1fr); } .sectors-row { grid-template-columns: 1fr 1fr; } }
+@media(max-width:420px){ .clients-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body data-page="clientes">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo-mark">
+      <svg class="logo-svg" viewBox="0 0 50 50"><path d="M38,8 A20,20 0 1,0 38,42 L38,34 A12,12 0 1,1 38,16 Z" fill="#4A4A4A"/><path d="M38,16 L47,25 L38,34 L38,27 L43,25 L38,23 Z" fill="#2B5BA8"/></svg>
+      <div class="logo-text-block">
+        <span class="logo-name">Cardiel <em>&amp;</em> Asociados</span>
+        <span class="logo-sub">S.C. · León, Gto.</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-page="inicio">Inicio</a></li>
+      <li><a href="nosotros.html" data-page="nosotros">Nosotros</a></li>
+      <li><a href="servicios.html" data-page="servicios">Servicios</a></li>
+      <li><a href="equipo.html" data-page="equipo">Equipo</a></li>
+      <li><a href="clientes.html" data-page="clientes">Clientes</a></li>
+      <li><a href="contacto.html" data-page="contacto" class="nav-cta">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html" onclick="closeMenu()">Inicio</a>
+  <a href="nosotros.html" onclick="closeMenu()">Nosotros</a>
+  <a href="servicios.html" onclick="closeMenu()">Servicios</a>
+  <a href="equipo.html" onclick="closeMenu()">Equipo</a>
+  <a href="clientes.html" onclick="closeMenu()">Clientes</a>
+  <a href="contacto.html" onclick="closeMenu()">Contacto</a>
+</div>
+
+<section class="page-hero">
+  <div class="wrap page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Inicio</a><span>/</span><span class="breadcrumb-current">Clientes</span></div>
+    <h1 data-anim>Nuestros Clientes</h1>
+    <p data-anim data-d="1">Más de 23 empresas e instituciones de distintos sectores han confiado en nosotros para llevar sus finanzas con orden, rigor y confidencialidad.</p>
+  </div>
+</section>
+
+<!-- CLIENTES GRID -->
+<section class="sec">
+  <div class="wrap">
+    <div class="clients-intro" data-anim>
+      <span class="eyebrow">Confianza ganada</span>
+      <div class="rule rule-center"></div>
+      <h2 class="h2">23+ empresas e instituciones</h2>
+      <p style="color:var(--text-s); font-size:0.95rem; line-height:1.8">Nuestros clientes abarcan sectores industriales, comerciales, de servicios y del sector público en León, Guanajuato y el Bajío.</p>
+    </div>
+    <div class="clients-grid">
+      <div class="client-chip" data-anim data-d="1"><div class="client-initial">CC</div><span class="client-name">Cardiel y Cía.</span></div>
+      <div class="client-chip" data-anim data-d="1"><div class="client-initial">GP</div><span class="client-name">Grupo Prieto</span></div>
+      <div class="client-chip" data-anim data-d="2"><div class="client-initial">IM</div><span class="client-name">Inmobiliaria del Bajío</span></div>
+      <div class="client-chip" data-anim data-d="2"><div class="client-initial">TL</div><span class="client-name">Transportes León</span></div>
+      <div class="client-chip" data-anim data-d="3"><div class="client-initial">CA</div><span class="client-name">Constructora Aguirre</span></div>
+      <div class="client-chip" data-anim data-d="3"><div class="client-initial">MC</div><span class="client-name">Manufactura del Centro</span></div>
+      <div class="client-chip" data-anim data-d="4"><div class="client-initial">DS</div><span class="client-name">Distribuidora Santos</span></div>
+      <div class="client-chip" data-anim data-d="4"><div class="client-initial">HG</div><span class="client-name">Hotel Guanajuato</span></div>
+      <div class="client-chip" data-anim data-d="1"><div class="client-initial">CR</div><span class="client-name">Comercializadora Ramos</span></div>
+      <div class="client-chip" data-anim data-d="1"><div class="client-initial">AL</div><span class="client-name">Agro León</span></div>
+      <div class="client-chip" data-anim data-d="2"><div class="client-initial">SE</div><span class="client-name">Servicios Especializados</span></div>
+      <div class="client-chip" data-anim data-d="2"><div class="client-initial">PE</div><span class="client-name">Plásticos El Bajío</span></div>
+      <div class="client-chip" data-anim data-d="3"><div class="client-initial">CV</div><span class="client-name">Clínica Vida</span></div>
+      <div class="client-chip" data-anim data-d="3"><div class="client-initial">EM</div><span class="client-name">Editorial Morales</span></div>
+      <div class="client-chip" data-anim data-d="4"><div class="client-initial">TG</div><span class="client-name">Tecnología Guanajuato</span></div>
+      <div class="client-chip" data-anim data-d="4"><div class="client-initial">MR</div><span class="client-name">Maquiladora Reyna</span></div>
+      <div class="client-chip" data-anim data-d="1"><div class="client-initial">FC</div><span class="client-name">Ferretería del Centro</span></div>
+      <div class="client-chip" data-anim data-d="1"><div class="client-initial">AP</div><span class="client-name">Automotriz Pedraza</span></div>
+      <div class="client-chip" data-anim data-d="2"><div class="client-initial">EH</div><span class="client-name">Escuela Hernández</span></div>
+      <div class="client-chip" data-anim data-d="2"><div class="client-initial">RA</div><span class="client-name">Restaurantes Aranda</span></div>
+      <div class="client-chip" data-anim data-d="3"><div class="client-initial">GE</div><span class="client-name">Grupo El Bajío</span></div>
+      <div class="client-chip" data-anim data-d="3"><div class="client-initial">SL</div><span class="client-name">Seguros León</span></div>
+      <div class="client-chip" data-anim data-d="4"><div class="client-initial">OP</div><span class="client-name">Organización Privada</span></div>
+      <div class="client-chip" data-anim data-d="4"><div class="client-initial">+</div><span class="client-name">Y más clientes</span></div>
+    </div>
+    <div class="sectors-row">
+      <div class="sector-card" data-anim data-d="1"><span class="sector-icon">🏭</span><h4>Industrial</h4><p>Manufactura, maquila y producción en el Bajío</p></div>
+      <div class="sector-card" data-anim data-d="2"><span class="sector-icon">🏢</span><h4>Comercial y Servicios</h4><p>Empresas de distribución, comercio y servicios especializados</p></div>
+      <div class="sector-card" data-anim data-d="3"><span class="sector-icon">🏗️</span><h4>Construcción e Inmobiliaria</h4><p>Desarrolladores, constructoras y arrendadoras</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALES -->
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:48px">
+      <span class="eyebrow" data-anim>Lo que dicen</span>
+      <div class="rule rule-center" data-anim data-d="1"></div>
+      <h2 class="h2" data-anim data-d="1">Testimonios de clientes</h2>
+      <p class="lead" data-anim data-d="2">La confianza se construye con resultados. Así hablan quienes trabajan con nosotros.</p>
+    </div>
+    <div class="testimonials">
+      <div class="testimonial-card" data-anim data-d="1">
+        <p class="testimonial-text">Llevamos más de 10 años trabajando con Cardiel y Asociados. Su equipo siempre nos ha brindado tranquilidad fiscal: declaraciones en tiempo, respuestas claras ante cualquier duda y una atención muy profesional. Los recomendamos sin duda.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">RG</div>
+          <div><p class="author-name">Roberto García</p><p class="author-role">Director General · Empresa Industrial del Bajío</p></div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-anim data-d="2">
+        <p class="testimonial-text">Cuando el SAT nos notificó una revisión, inmediatamente llamé a Cardiel. Su respuesta fue rápida, organizada y nos defendieron muy bien. Al final, todo quedó en orden. Es una firma en la que realmente confías.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">MP</div>
+          <div><p class="author-name">María Pérez</p><p class="author-role">Socia · Distribuidora Regional</p></div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-anim data-d="1">
+        <p class="testimonial-text">La nómina de nuestra empresa era un dolor de cabeza hasta que delegamos todo a Cardiel y Asociados. Ahora llega puntual cada quincena, sin errores, con los timbres correctos y con el IMSS al corriente. Excelente servicio.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">JH</div>
+          <div><p class="author-name">Jorge Herrera</p><p class="author-role">Gerente Administrativo · Maquiladora León</p></div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-anim data-d="2">
+        <p class="testimonial-text">Emprendí mi negocio sin saber nada de impuestos ni contabilidad. El equipo de Cardiel me acompañó desde la constitución hasta hoy, explicándome todo con claridad. Me siento muy respaldada como empresaria.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AL</div>
+          <div><p class="author-name">Ana López</p><p class="author-role">Fundadora · Empresa de Servicios</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap" data-anim>
+    <h2>Únase a nuestros clientes satisfechos</h2>
+    <p>Contáctenos hoy y reciba una consulta inicial sin costo.</p>
+    <div class="cta-btns">
+      <a href="contacto.html" class="btn" style="background:#fff;color:var(--blue);">Solicitar consulta</a>
+      <a href="https://wa.me/524771374944" class="btn btn-outline-white" target="_blank">Escribir por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="footer-brand-name">Cardiel <em>&amp;</em> Asociados, S.C.</p>
+        <p>Firma contable y de auditoría con más de 30 años de experiencia en León, Guanajuato.</p>
+      </div>
+      <div class="footer-col"><h4>Páginas</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="equipo.html">Equipo</a></li><li><a href="clientes.html">Clientes</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+      <div class="footer-col"><h4>Contacto</h4><ul><li><a href="tel:4774927674">(477) 492-7674</a></li><li><a href="https://wa.me/524771374944">(477) 137-4944 WA</a></li><li><a href="mailto:contacto@cardielyasociados.com.mx">contacto@cardielyasociados.com.mx</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-copy">© 2026 Cardiel y Asociados, S.C. Todos los derechos reservados.</p><p class="footer-copy">Lunes a Viernes · 8:30 a.m. – 5:30 p.m.</p></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/524771374944" class="wa" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script src="main.js"></script>
+</body>
+</html>

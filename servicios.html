@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Servicios — Cardiel &amp; Asociados</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.services-nav { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 56px; }
+.services-nav a {
+  font-size: 0.82rem; font-weight: 600; padding: 9px 18px;
+  border-radius: 20px; border: 1.5px solid var(--border);
+  color: var(--text-s); transition: all var(--tr);
+}
+.services-nav a:hover { border-color: var(--blue); color: var(--blue); background: var(--bg-alt); }
+.service-block { padding: 88px 0; }
+.service-block:nth-child(even) { background: var(--bg-alt); }
+.service-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+.service-inner.reverse { }
+.service-icon-big {
+  width: 80px; height: 80px; border-radius: 16px;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.2rem; margin-bottom: 24px; flex-shrink: 0;
+}
+.service-content h2 { font-size: 1.9rem; margin-bottom: 14px; }
+.service-content p { font-size: 0.95rem; color: var(--text-s); line-height: 1.85; margin-bottom: 16px; }
+.service-list { list-style: none; margin-top: 8px; display: flex; flex-direction: column; gap: 10px; }
+.service-list li {
+  font-size: 0.88rem; color: var(--text-s);
+  display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
+}
+.service-list li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.service-aside {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 32px;
+  box-shadow: var(--shadow);
+}
+.service-block:nth-child(even) .service-aside { background: var(--bg); }
+.aside-title { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); margin-bottom: 16px; font-family: inherit; }
+.aside-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.aside-list li { font-size: 0.85rem; color: var(--text-s); padding: 8px 0; border-bottom: 1px solid var(--border); }
+.aside-list li:last-child { border: none; }
+.aside-note { font-size: 0.8rem; color: var(--text-m); margin-top: 16px; line-height: 1.65; font-style: italic; }
+@media(max-width:860px){ .service-inner { grid-template-columns: 1fr; gap: 36px; } }
+</style>
+</head>
+<body data-page="servicios">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo-mark">
+      <svg class="logo-svg" viewBox="0 0 50 50"><path d="M38,8 A20,20 0 1,0 38,42 L38,34 A12,12 0 1,1 38,16 Z" fill="#4A4A4A"/><path d="M38,16 L47,25 L38,34 L38,27 L43,25 L38,23 Z" fill="#2B5BA8"/></svg>
+      <div class="logo-text-block">
+        <span class="logo-name">Cardiel <em>&amp;</em> Asociados</span>
+        <span class="logo-sub">S.C. · León, Gto.</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-page="inicio">Inicio</a></li>
+      <li><a href="nosotros.html" data-page="nosotros">Nosotros</a></li>
+      <li><a href="servicios.html" data-page="servicios">Servicios</a></li>
+      <li><a href="equipo.html" data-page="equipo">Equipo</a></li>
+      <li><a href="clientes.html" data-page="clientes">Clientes</a></li>
+      <li><a href="contacto.html" data-page="contacto" class="nav-cta">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html" onclick="closeMenu()">Inicio</a>
+  <a href="nosotros.html" onclick="closeMenu()">Nosotros</a>
+  <a href="servicios.html" onclick="closeMenu()">Servicios</a>
+  <a href="equipo.html" onclick="closeMenu()">Equipo</a>
+  <a href="clientes.html" onclick="closeMenu()">Clientes</a>
+  <a href="contacto.html" onclick="closeMenu()">Contacto</a>
+</div>
+
+<section class="page-hero">
+  <div class="wrap page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Inicio</a><span>/</span><span class="breadcrumb-current">Servicios</span></div>
+    <h1 data-anim>Nuestros Servicios</h1>
+    <p data-anim data-d="1">Soluciones contables, fiscales y de auditoría diseñadas para personas físicas, empresas e instituciones en León y el Bajío.</p>
+  </div>
+</section>
+
+<div class="wrap" style="padding-top:52px">
+  <div class="services-nav" data-anim>
+    <a href="#auditoria">Auditoría</a>
+    <a href="#impuestos">Impuestos</a>
+    <a href="#contabilidad">Contabilidad</a>
+    <a href="#nomina">Nómina</a>
+    <a href="#costos">Costos</a>
+    <a href="#constitucion">Constitución</a>
+  </div>
+</div>
+
+<!-- 1. AUDITORÍA -->
+<section class="service-block" id="auditoria">
+  <div class="wrap">
+    <div class="service-inner">
+      <div class="service-content" data-anim-l>
+        <div class="service-icon-big">🔍</div>
+        <span class="eyebrow">Servicio 01</span>
+        <div class="rule"></div>
+        <h2>Auditoría</h2>
+        <p>Contamos con amplia experiencia en servicios de auditoría de estados financieros, tanto para empresas privadas como públicas. Nuestros procesos están alineados con las Normas de Auditoría Generalmente Aceptadas y las Normas Internacionales de Auditoría.</p>
+        <p>Realizamos evaluaciones independientes que brindan certeza a directivos, accionistas e instituciones financieras sobre la razonabilidad de la información financiera presentada.</p>
+        <ul class="service-list">
+          <li>Auditoría de estados financieros (PCGA y NIF)</li>
+          <li>Auditoría fiscal (Dictamen IMSS, SAT)</li>
+          <li>Auditoría interna y operacional</li>
+          <li>Revisión de controles internos</li>
+          <li>Auditoría de cumplimiento normativo</li>
+          <li>Revisión limitada de estados financieros intermedios</li>
+        </ul>
+      </div>
+      <div data-anim-r>
+        <div class="service-aside">
+          <p class="aside-title">¿Para quién es este servicio?</p>
+          <ul class="aside-list">
+            <li>Empresas con obligación de dictamen fiscal</li>
+            <li>Organismos que requieren auditoría externa independiente</li>
+            <li>Empresas que solicitan financiamiento bancario</li>
+            <li>Grupos empresariales con múltiples entidades</li>
+          </ul>
+          <p class="aside-note">Emitimos informes de auditoría firmados por C.P.C. con cédula profesional, cumpliendo con los requerimientos del SAT y del IMSS.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. IMPUESTOS -->
+<section class="service-block" id="impuestos">
+  <div class="wrap">
+    <div class="service-inner">
+      <div class="service-content" data-anim-l>
+        <div class="service-icon-big">📑</div>
+        <span class="eyebrow">Servicio 02</span>
+        <div class="rule"></div>
+        <h2>Asesoría e Implementación Fiscal</h2>
+        <p>El entorno fiscal mexicano cambia constantemente. Nuestro equipo se mantiene actualizado con las últimas reformas del SAT para que su empresa cumpla en tiempo y forma, aprovechando todos los beneficios legales disponibles.</p>
+        <p>Ofrecemos planeación fiscal preventiva que reduce la carga tributaria de forma legítima, y acompañamiento ante actos de autoridad para defender los intereses del contribuyente.</p>
+        <ul class="service-list">
+          <li>Declaraciones anuales y provisionales (ISR, IVA, IEPS)</li>
+          <li>Planeación fiscal individual y empresarial</li>
+          <li>Cumplimiento de obligaciones CFDI y facturación electrónica</li>
+          <li>Representación ante auditorías del SAT</li>
+          <li>Consultas y opiniones fiscales</li>
+          <li>Régimen simplificado de confianza (RESICO)</li>
+        </ul>
+      </div>
+      <div data-anim-r>
+        <div class="service-aside">
+          <p class="aside-title">¿Para quién es este servicio?</p>
+          <ul class="aside-list">
+            <li>Personas físicas con actividad empresarial o profesional</li>
+            <li>Empresas con operaciones nacionales o internacionales</li>
+            <li>Contribuyentes con revisiones o requerimientos del SAT</li>
+            <li>Empresas en etapa de expansión o restructura</li>
+          </ul>
+          <p class="aside-note">Nos especializamos en ISR, IVA, IEPS y Régimen Simplificado de Confianza. Atendemos requerimientos de la autoridad fiscal de forma oportuna.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. CONTABILIDAD -->
+<section class="service-block" id="contabilidad">
+  <div class="wrap">
+    <div class="service-inner">
+      <div class="service-content" data-anim-l>
+        <div class="service-icon-big">📊</div>
+        <span class="eyebrow">Servicio 03</span>
+        <div class="rule"></div>
+        <h2>Contabilidad General</h2>
+        <p>Llevamos la contabilidad de su empresa de manera ordenada, oportuna y bajo las Normas de Información Financiera (NIF) vigentes. Generamos información financiera confiable que le permite tomar decisiones estratégicas con respaldo numérico.</p>
+        <p>Desde la captura de pólizas hasta la presentación de estados financieros completos, nos hacemos cargo de toda la operación contable de su negocio.</p>
+        <ul class="service-list">
+          <li>Contabilidad mensual bajo NIF</li>
+          <li>Estados financieros (balance, resultados, flujo de efectivo)</li>
+          <li>Conciliaciones bancarias</li>
+          <li>Contabilidad electrónica para el SAT (XML mensual)</li>
+          <li>Análisis y presentación de resultados</li>
+          <li>Elaboración de catálogos de cuentas</li>
+        </ul>
+      </div>
+      <div data-anim-r>
+        <div class="service-aside">
+          <p class="aside-title">¿Para quién es este servicio?</p>
+          <ul class="aside-list">
+            <li>Empresas de cualquier tamaño y giro</li>
+            <li>Personas físicas con ingresos por honorarios o arrendamiento</li>
+            <li>Negocios que buscan externalizar su área contable</li>
+            <li>Startups y nuevas empresas en crecimiento</li>
+          </ul>
+          <p class="aside-note">Trabajamos con los principales sistemas contables del mercado y entregamos los archivos de contabilidad electrónica en el formato requerido por el SAT.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. NÓMINA -->
+<section class="service-block" id="nomina">
+  <div class="wrap">
+    <div class="service-inner">
+      <div class="service-content" data-anim-l>
+        <div class="service-icon-big">👥</div>
+        <span class="eyebrow">Servicio 04</span>
+        <div class="rule"></div>
+        <h2>Nómina y Seguridad Social</h2>
+        <p>El manejo de la nómina requiere precisión, puntualidad y conocimiento actualizado de las obligaciones patronales ante el IMSS, INFONAVIT y SAT. Nos encargamos de todo el ciclo de nómina para que usted se enfoque en su negocio.</p>
+        <p>Procesamos nóminas semanales, quincenales o mensuales con cálculo preciso de todas las prestaciones de ley, retenciones y aportaciones patronales.</p>
+        <ul class="service-list">
+          <li>Cálculo y dispersión de nómina (cualquier periodicidad)</li>
+          <li>CFDI de nómina (timbrado y envío a trabajadores)</li>
+          <li>Liquidaciones, finiquitos e indemnizaciones</li>
+          <li>Altas, bajas y modificaciones ante el IMSS</li>
+          <li>Declaración y pago de cuotas IMSS e INFONAVIT</li>
+          <li>Cálculo anual de ISR (ajuste anual de nómina)</li>
+        </ul>
+      </div>
+      <div data-anim-r>
+        <div class="service-aside">
+          <p class="aside-title">¿Para quién es este servicio?</p>
+          <ul class="aside-list">
+            <li>Empresas con trabajadores formales en nómina</li>
+            <li>Negocios con personal sindicalizado</li>
+            <li>Empresas con alta rotación de personal</li>
+            <li>Organizaciones que necesitan reportes de nómina detallados</li>
+          </ul>
+          <p class="aside-note">Garantizamos el timbre oportuno del CFDI de nómina y el cumplimiento de las obligaciones patronales frente al IMSS e INFONAVIT.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. COSTOS -->
+<section class="service-block" id="costos">
+  <div class="wrap">
+    <div class="service-inner">
+      <div class="service-content" data-anim-l>
+        <div class="service-icon-big">📈</div>
+        <span class="eyebrow">Servicio 05</span>
+        <div class="rule"></div>
+        <h2>Contabilidad de Costos</h2>
+        <p>El conocimiento preciso de los costos de producción y operación es fundamental para fijar precios competitivos y maximizar la rentabilidad. Diseñamos e implementamos sistemas de costos adaptados a la naturaleza de cada empresa.</p>
+        <p>Analizamos los costos fijos, variables y semivariables de su operación, identificando oportunidades de reducción sin comprometer la calidad del producto o servicio.</p>
+        <ul class="service-list">
+          <li>Diseño e implementación de sistemas de costeo</li>
+          <li>Costeo por procesos, por órdenes y ABC</li>
+          <li>Análisis de punto de equilibrio</li>
+          <li>Reportes de margen de contribución por línea de producto</li>
+          <li>Presupuestación y control de costos</li>
+          <li>Análisis de variaciones vs. presupuesto</li>
+        </ul>
+      </div>
+      <div data-anim-r>
+        <div class="service-aside">
+          <p class="aside-title">¿Para quién es este servicio?</p>
+          <ul class="aside-list">
+            <li>Empresas manufactureras y de producción</li>
+            <li>Negocios de servicios con costos complejos</li>
+            <li>Empresas que desean mejorar su rentabilidad</li>
+            <li>Gerentes y directores que toman decisiones de precio</li>
+          </ul>
+          <p class="aside-note">Trabajamos directamente con el área de producción para entender el proceso productivo y diseñar un sistema de costos que refleje la realidad operativa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CONSTITUCIÓN -->
+<section class="service-block" id="constitucion">
+  <div class="wrap">
+    <div class="service-inner">
+      <div class="service-content" data-anim-l>
+        <div class="service-icon-big">🏛️</div>
+        <span class="eyebrow">Servicio 06</span>
+        <div class="rule"></div>
+        <h2>Constitución de Empresas</h2>
+        <p>Acompañamos a emprendedores y empresarios desde el inicio: desde la elección del régimen fiscal y figura societaria más conveniente, hasta la inscripción ante el SAT, IMSS e INFONAVIT, y los primeros meses de operación contable.</p>
+        <p>Nuestro asesoramiento previene errores costosos al inicio y sienta las bases para una empresa ordenada, con estructura legal y fiscal sólida desde el primer día.</p>
+        <ul class="service-list">
+          <li>Asesoría en elección de figura societaria (SA de CV, SAPI, SAS, etc.)</li>
+          <li>Coordinación con notario para escritura constitutiva</li>
+          <li>Inscripción ante el SAT (RFC empresarial)</li>
+          <li>Registro patronal ante IMSS e INFONAVIT</li>
+          <li>Alta en el padrón de importadores/exportadores (si aplica)</li>
+          <li>Configuración del régimen fiscal óptimo desde el inicio</li>
+        </ul>
+      </div>
+      <div data-anim-r>
+        <div class="service-aside">
+          <p class="aside-title">¿Para quién es este servicio?</p>
+          <ul class="aside-list">
+            <li>Emprendedores que abren su primer negocio</li>
+            <li>Socios que formalizan una asociación</li>
+            <li>Empresas extranjeras que establecen operaciones en México</li>
+            <li>Negocios informales que buscan formalizarse</li>
+          </ul>
+          <p class="aside-note">Le guiamos en cada paso del proceso para que su empresa quede constituida de forma correcta, ahorrando tiempo y evitando complicaciones futuras.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap" data-anim>
+    <h2>¿Listo para ordenar las finanzas de su empresa?</h2>
+    <p>Agende una consulta sin costo y conozca cómo podemos ayudarle.</p>
+    <div class="cta-btns">
+      <a href="contacto.html" class="btn" style="background:#fff;color:var(--blue);">Solicitar consulta</a>
+      <a href="https://wa.me/524771374944" class="btn btn-outline-white" target="_blank">Escribir por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="footer-brand-name">Cardiel <em>&amp;</em> Asociados, S.C.</p>
+        <p>Firma contable y de auditoría con más de 30 años de experiencia en León, Guanajuato.</p>
+      </div>
+      <div class="footer-col"><h4>Páginas</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="equipo.html">Equipo</a></li><li><a href="clientes.html">Clientes</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+      <div class="footer-col"><h4>Contacto</h4><ul><li><a href="tel:4774927674">(477) 492-7674</a></li><li><a href="https://wa.me/524771374944">(477) 137-4944 WA</a></li><li><a href="mailto:contacto@cardielyasociados.com.mx">contacto@cardielyasociados.com.mx</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-copy">© 2026 Cardiel y Asociados, S.C. Todos los derechos reservados.</p><p class="footer-copy">Lunes a Viernes · 8:30 a.m. – 5:30 p.m.</p></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/524771374944" class="wa" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script src="main.js"></script>
+</body>
+</html>
