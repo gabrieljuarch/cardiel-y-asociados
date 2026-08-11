@@ -101,6 +101,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Preload hero image for faster LCP -->
+  <link rel="preload" href="hero-bg.webp" as="image" fetchpriority="high">
   <link rel="preload" href="LOGO inicio.webp" as="image">
   <!-- Load Google Fonts asynchronously to avoid render-blocking -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -276,7 +277,7 @@
     #hero-bg {
       position: absolute;
       inset: -10%;
-      background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+      background: url('hero-bg.webp') center/cover no-repeat;
       will-change: transform;
     }
     .hero-overlay {
