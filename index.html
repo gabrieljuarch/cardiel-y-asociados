@@ -970,13 +970,22 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 16px rgba(37,211,102,0.42);
-      animation: wapulse 2.5s ease-in-out infinite;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.42);
       transition: transform 0.2s;
     }
-    .wa-btn:hover { transform: scale(1.08); animation: none; }
+    .wa-btn:hover { transform: scale(1.08); }
+    .wa-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: rgba(37,211,102,0.35);
+      animation: wapulse 2.5s ease-in-out infinite;
+      z-index: -1;
+    }
     @keyframes wapulse {
-      0%, 100% { box-shadow: 0 4px 16px rgba(37,211,102,0.42); }
-      50%       { box-shadow: 0 4px 30px rgba(37,211,102,0.7), 0 0 0 8px rgba(37,211,102,0.1); }
+      0%, 100% { transform: scale(1);   opacity: 0.6; }
+      50%       { transform: scale(1.5); opacity: 0; }
     }
     .wa-btn svg { width: 30px; height: 30px; }
 
@@ -1127,6 +1136,7 @@
     </button>
   </nav>
 
+  <main id="contenido-principal">
   <!-- ====== HERO ====== -->
   <section class="hero" id="inicio">
     <div id="hero-bg"></div>
@@ -1149,7 +1159,7 @@
   <!-- ====== NOSOTROS ====== -->
   <section class="nosotros" id="nosotros">
     <div class="nosotros-photo photo-reveal">
-      <img src="junta cardiel.webp" alt="Junta ejecutiva Cardiel y Asociados">
+      <img src="junta cardiel.webp" alt="Junta ejecutiva Cardiel y Asociados" width="900" height="900">
     </div>
     <div class="nosotros-text">
       <p class="section-eyebrow" data-r="f">¿Quiénes somos?</p>
@@ -1194,7 +1204,7 @@
 
       <div class="svc-item" data-r>
         <div class="svc-photo">
-          <img src="https://images.pexels.com/photos/6693661/pexels-photo-6693661.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Contabilidad Fiscal">
+          <img src="https://images.pexels.com/photos/6693661/pexels-photo-6693661.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Contabilidad Fiscal" width="700" height="467">
         </div>
         <div class="svc-body">
           <h3>Contabilidad Fiscal</h3>
@@ -1204,7 +1214,7 @@
 
       <div class="svc-item" data-r>
         <div class="svc-photo">
-          <img src="https://images.pexels.com/photos/7681091/pexels-photo-7681091.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Auditoría">
+          <img src="https://images.pexels.com/photos/7681091/pexels-photo-7681091.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Auditoría" width="700" height="467">
         </div>
         <div class="svc-body">
           <h3>Auditoría</h3>
@@ -1214,7 +1224,7 @@
 
       <div class="svc-item" data-r>
         <div class="svc-photo">
-          <img src="Impuestos.webp" alt="Impuestos">
+          <img src="Impuestos.webp" alt="Impuestos" width="700" height="435">
         </div>
         <div class="svc-body">
           <h3>Impuestos</h3>
@@ -1224,7 +1234,7 @@
 
       <div class="svc-item" data-r>
         <div class="svc-photo">
-          <img src="Contabilidad fiscal.webp" alt="Nóminas y Seguridad Social">
+          <img src="Contabilidad fiscal.webp" alt="Nóminas y Seguridad Social" width="700" height="490">
         </div>
         <div class="svc-body">
           <h3>Nóminas y Seguridad Social</h3>
@@ -1234,7 +1244,7 @@
 
       <div class="svc-item" data-r>
         <div class="svc-photo">
-          <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Asesoría Empresarial">
+          <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Asesoría Empresarial" width="700" height="467">
         </div>
         <div class="svc-body">
           <h3>Asesoría Empresarial</h3>
@@ -1244,7 +1254,7 @@
 
       <div class="svc-item" data-r>
         <div class="svc-photo">
-          <img src="https://images.pexels.com/photos/5386754/pexels-photo-5386754.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Personas Físicas">
+          <img src="https://images.pexels.com/photos/5386754/pexels-photo-5386754.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Personas Físicas" width="700" height="467">
         </div>
         <div class="svc-body">
           <h3>Personas Físicas</h3>
@@ -1254,7 +1264,7 @@
 
       <div class="svc-item" data-r>
         <div class="svc-photo">
-          <img src="Costos.webp" alt="Análisis de Costos">
+          <img src="Costos.webp" alt="Análisis de Costos" width="700" height="382">
         </div>
         <div class="svc-body">
           <h3>Análisis de Costos</h3>
@@ -1264,7 +1274,7 @@
 
       <div class="svc-item" data-r>
         <div class="svc-photo">
-          <img src="Actualizacion.webp" alt="Actualización Continua">
+          <img src="Actualizacion.webp" alt="Actualización Continua" width="700" height="382">
         </div>
         <div class="svc-body">
           <h3>Actualización Continua</h3>
@@ -1451,6 +1461,8 @@
   <div style="line-height:0;">
     <iframe title="Ubicación de Cardiel y Asociados, S.C. en León, Guanajuato" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.00138183644!2d-101.67236098940592!3d21.112511084816095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bbfa92808945b%3A0x8e241f5a50c6952c!2sAv.%20Calz.%20Tepeyac%20460%2C%20Andrade%2C%2037020%20Le%C3%B3n%20de%20los%20Aldama%2C%20Gto.!5e0!3m2!1ses-419!2smx!4v1784776505469!5m2!1ses-419!2smx" width="100%" height="420" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
   </div>
+
+  </main>
 
   <!-- ====== FOOTER ====== -->
   <footer>
